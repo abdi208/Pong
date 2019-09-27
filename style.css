@@ -1,0 +1,44 @@
+body {
+    background-color: chartreuse;
+    text-align: center;
+    margin: 80px auto;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+}
+#container {
+    position: relative;
+    border: 1px solid black;
+    height: 500px;
+    width: 500px;
+    background-color: black;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+#playerSq {
+    height: 50px;
+    width: 10px;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    left: 2%;
+}
+#playerSq2 {
+    height: 50px;
+    width: 10px;
+    background-color: white;
+    float: right;
+    position: absolute;
+    left: 95%;
+}
+#circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    left: 48%;
+}
