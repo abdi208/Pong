@@ -7,20 +7,10 @@ var player1Pos = 225;
 var player2Pos = 225;
 
 //---set interval for the moveBAll callback----
-var ballAnimated = setInterval(moveBall, 600);
+var ballAnimated = setInterval(moveBall, 100);
 document.addEventListener("keydown", function(e) {
     movePlayerOne(e);
     movePlayer2(e);
-    var player2Paddle = player2.offsetLeft
-    var player2Top = player2.offsetTop
-    var player2Height =  player2.offsetHeight + player2Top
-    console.log(player2.offsetLeft);
-    console.log(player2.offsetTop);
-    console.log(player2.offsetHeight);
-    console.log('yoooooooo')
-    console.log(player2Paddle);
-    console.log(player2Top);
-    console.log(player2Height);
    
     
 })
@@ -50,7 +40,7 @@ var ball1 =  {
     x: 245,
     y: 245,
     directionX: 1,
-    directionY: 1
+    directionY: -1
 }
 // ----make sure the ball moves and detect collision
 function moveBall() {
@@ -80,12 +70,16 @@ function moveBall() {
             ball.directionX = -1
             
         }
+        var player2Paddle = player2.offsetLeft
+        var player2Top = player2.offsetTop
+        var player2Height =  player2.offsetHeight + player2Top
 //--- check to see if pong hit player--/
-
-       
-
-        // console.log(ball.y)      
-        // console.log(ball.x)      
-
+        if(ball.x + ball.speed * ball.directionX >= player2Paddle){
+            if(ball.y + ball.speed * ball.directionY <= player2Height && ball.y + ball.speed * ball.directionY >= player2Top){
+                console.log("big dawg")
+                ball.directionX = -1
+                
+            }
+        }   
 }
  
