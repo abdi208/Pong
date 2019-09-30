@@ -57,17 +57,22 @@ function moveBall() {
         if (ball.y + ball.speed  * ball.directionY < 0) {
                 ball.directionY = 1;
             }
-// --- if the pong passes the right side of the container score point for appropriate player serve it back to right side
-        if(ball.x + ball.speed * ball.directionX < 0) {
-            // ball.x = 245;
-            // ball.y = 245;
-            ball.directionX = 1
-        }
-// -- if pong passes left side of container reset at middle and serve the pong back to losing player
-        if(ball.x + ball.speed * ball.directionX > 500) {
-            // ball.x = 245;
-            // ball.y = 245;
+// --- if the pong passes the left side of the container score point for appropriate player serve it back to left side
+        if(ball.x + ball.speed * ball.directionX <= 0) {
+            ball.x = 245;
+            ball.y = 245;
+            document.getElementById("circle").style.left = ball.x + 'px';
+            document.getElementById("circle").style.top = ball.y + 'px';
             ball.directionX = -1
+            
+        }
+// -- if pong passes right side of container reset at middle and serve the pong back to losing player
+        if(ball.x + ball.speed * ball.directionX > 500) {
+            ball.x = 245;
+            ball.y = 245;
+            document.getElementById("circle").style.left = ball.x;
+            document.getElementById("circle").style.top = ball.y ;
+            ball.directionX = 1
             
         }
         var player2Paddle = player2.offsetLeft
@@ -81,7 +86,7 @@ function moveBall() {
                 
             }
         }
-        
+
         var player1Paddle = player1.offsetLeft + player1.offsetWidth
         var player1Top = player1.offsetTop
         var player1Height =  player1.offsetHeight + player1Top
