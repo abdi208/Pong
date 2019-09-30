@@ -23,7 +23,7 @@ body {
     background-color: white;
     display: inline-block;
     position: absolute;
-    left: 2%;
+    left: 15px;
 }
 #playerSq2 {
     height: 50px;
@@ -31,7 +31,7 @@ body {
     background-color: white;
     float: right;
     position: absolute;
-    left: 95%;
+    left: 475px;
 }
 #circle {
     height: 10px;
@@ -40,5 +40,5 @@ body {
     background-color: white;
     margin: 0 auto;
     position: absolute;
-    left: 48%;
+    left: 245px;
 }
