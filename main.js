@@ -1,7 +1,4 @@
-var paddle2 = parseInt(document.getElementById('playerSq2').style.left)
-console.log(paddle2)
-console.log(document.getElementById('playerSq2').style.left);
-console.log('hello');
+
 /// define variable.
 var player1 = document.getElementById("playerSq");
 var player2 = document.getElementById("playerSq2");
@@ -10,11 +7,22 @@ var player1Pos = 225;
 var player2Pos = 225;
 
 //---set interval for the moveBAll callback----
-var ballAnimated = setInterval(moveBall, 108);
+var ballAnimated = setInterval(moveBall, 600);
 document.addEventListener("keydown", function(e) {
     movePlayerOne(e);
     movePlayer2(e);
-    console.log(player2Pos)
+    var player2Paddle = player2.offsetLeft
+    var player2Top = player2.offsetTop
+    var player2Height =  player2.offsetHeight + player2Top
+    console.log(player2.offsetLeft);
+    console.log(player2.offsetTop);
+    console.log(player2.offsetHeight);
+    console.log('yoooooooo')
+    console.log(player2Paddle);
+    console.log(player2Top);
+    console.log(player2Height);
+   
+    
 })
 ///----move both paddles--- up or down
 function movePlayerOne(e) {
@@ -44,7 +52,6 @@ var ball1 =  {
     directionX: 1,
     directionY: 1
 }
-
 // ----make sure the ball moves and detect collision
 function moveBall() {
         var ball =  ball1;
@@ -60,21 +67,25 @@ function moveBall() {
         if (ball.y + ball.speed  * ball.directionY < 0) {
                 ball.directionY = 1;
             }
-// --- if the pong passes the right side of the container score point for appropriate player
+// --- if the pong passes the right side of the container score point for appropriate player serve it back to right side
         if(ball.x + ball.speed * ball.directionX < 0) {
-            ball.x = 245;
-            ball.y = 245;
-            ball.directionX = -1
-        }
-        if(ball.x + ball.speed * ball.directionX > 500) {
-            ball.x = 245;
-            ball.y = 245;
+            // ball.x = 245;
+            // ball.y = 245;
             ball.directionX = 1
+        }
+// -- if pong passes left side of container reset at middle and serve the pong back to losing player
+        if(ball.x + ball.speed * ball.directionX > 500) {
+            // ball.x = 245;
+            // ball.y = 245;
+            ball.directionX = -1
+            
         }
 //--- check to see if pong hit player--/
 
-        if(ball.x + ball.speed * ball.directionX > player2Pos){
-            ball.directionX = 1
-        }
+       
+
+        // console.log(ball.y)      
+        // console.log(ball.x)      
 
 }
+ 

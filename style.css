@@ -26,6 +26,7 @@ body {
     left: 15px;
 }
 #playerSq2 {
+    top: 225px;
     height: 50px;
     width: 10px;
     background-color: white;
