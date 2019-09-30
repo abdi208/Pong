@@ -73,11 +73,23 @@ function moveBall() {
         var player2Paddle = player2.offsetLeft
         var player2Top = player2.offsetTop
         var player2Height =  player2.offsetHeight + player2Top
-//--- check to see if pong hit player--/
+//--- check to see if pong hit right paddle--/
         if(ball.x + ball.speed * ball.directionX >= player2Paddle){
             if(ball.y + ball.speed * ball.directionY <= player2Height && ball.y + ball.speed * ball.directionY >= player2Top){
                 console.log("big dawg")
                 ball.directionX = -1
+                
+            }
+        }
+        
+        var player1Paddle = player1.offsetLeft + player1.offsetWidth
+        var player1Top = player1.offsetTop
+        var player1Height =  player1.offsetHeight + player1Top
+//--- check to see if pong hit left paddle--/
+        if(ball.x + ball.speed * ball.directionX < player1Paddle){
+            if(ball.y + ball.speed * ball.directionY <= player1Height && ball.y + ball.speed * ball.directionY >= player1Top){
+                console.log("big dawg")
+                ball.directionX = 1
                 
             }
         }   
