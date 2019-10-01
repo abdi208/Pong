@@ -9,7 +9,7 @@ body {
 #startScreen {
     height: 500px;
     width: 500px;
-    background: blue;
+    background: black;
     color: white;
     /* margin: 50 auto 0 auto; */
     text-align: center;
@@ -17,6 +17,7 @@ body {
     display: inline-block;
     position: absolute;
     margin: 0 auto;
+    align-items: center;
 }
 #container {
     /* position: relative; */
