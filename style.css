@@ -17,6 +17,24 @@ body {
     align-items: center;
     justify-content: space-between; 
 }
+#player1Score {
+    height: 100px;
+    width: 100px;
+    font-size: 35px;
+    top: 10px;
+    position: absolute;
+    left: 10px;
+    color: white;
+}
+#player2Score {
+    height: 100px;
+    width: 100px;
+    font-size: 35px;
+    top: 10px;
+    position: absolute;
+    left: 390px;
+    color: white
+}
 #playerSq {
     top:225;
     height: 50px;
