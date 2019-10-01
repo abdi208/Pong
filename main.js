@@ -9,17 +9,19 @@ var scoreP1 = 0;
 var scoreP2 = 0;
 var player1Pos = 225;
 var player2Pos = 225;
+var reset = document.getElementById('reset').addEventListener('click',resetGame);
 
 //---set interval for the moveBAll callback----
 
+var ballanimated = setInterval(moveBall, 100);
 document.addEventListener("keydown", function(e) {
+   
     movePlayerOne(e);
     movePlayer2(e);
     startGame(e);
-   
     
 })
-///----move both paddles--- up or down
+///---- move both paddles --- up or down
 function movePlayerOne(e) {
     if (e.which === 38 && player1Pos > 5) {
         player1Pos -= 20;
@@ -55,7 +57,7 @@ function moveBall() {
         ball.y += ball.speed * ball.directionY;
         document.getElementById("circle").style.left = ball.x + 'px';
         document.getElementById("circle").style.top = ball.y + 'px';
-
+        
         containerBorderHit();
         detectPaddleHit();
  
@@ -78,6 +80,10 @@ function containerBorderHit() {
             ball.directionX = -1
             scoreP2++
             player2Score.textContent = scoreP2
+            if(scoreP2 === 5){
+                stopAnimation();
+                document.getElementById('reset').style.visibility = "visible"
+            }
         }
 // -- if pong passes right side of container reset at middle and serve the pong back to losing player
         if(ball.x + ball.speed * ball.directionX >= 500) {
@@ -88,7 +94,12 @@ function containerBorderHit() {
             ball.directionX = 1
             scoreP1++
             player1Score.textContent = scoreP1
+            if(scoreP1 === 5){
+                stopAnimation();
+                document.getElementById('reset').style.visibility = "visible"
+            }
         }
+       
 }
 
 function detectPaddleHit() {
@@ -120,7 +131,33 @@ function startGame(e) {
     if(e.which === 32) {
         document.getElementById('startScreen').style.visibility = "hidden";
         document.getElementById('container').style.visibility = "visible";
-        var ballAnimated = setInterval(moveBall, 100);
+        
     }
+    
+    
 
+}
+function stopAnimation() {
+    clearInterval(ballanimated);
+}
+function resetGame(e) {
+    document.getElementById('reset').style.visibility = "hidden"
+    player2Score.innerHTML = 0;
+    player1Score.innerHTML = 0;
+    scoreP1 = 0;
+    scoreP2 = 0;
+    var player1Pos = 225;
+    var player2Pos = 225;
+    player1.style.top = player1Pos + "px";
+    player2.style.top = player2Pos + "px"
+    ball.x = 245;
+    ball.y = 245;
+    document.getElementById("circle").style.left = ball.x + 'px';
+    document.getElementById("circle").style.top = ball.y + 'px';
+    startGame(e);
+    moveBall(e);
+    containerBorderHit(e)
+    detectPaddleHit(e);
+    stopAnimation(e);
+    ballanimated = setInterval(moveBall, 100);
 }

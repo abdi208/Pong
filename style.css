@@ -11,28 +11,26 @@ body {
     width: 500px;
     background: black;
     color: white;
-    /* margin: 50 auto 0 auto; */
     text-align: center;
     font-size: 60px;
     display: inline-block;
     position: absolute;
     margin: 0 auto;
     align-items: center;
+    top: 80px
 }
 #container {
-    /* position: relative; */
     height: 500px;
     width: 500px;
     background-color: black;
-    /* margin: 50px auto 0 auto; */
     text-align: center;
-    /* display: flex; */
     align-items: center;
     justify-content: space-between; 
     display: inline-block;
     margin: 0 auto;
     visibility: hidden;
     position: relative;
+    top: 80px
 }
 
 #player1Score {
@@ -68,7 +66,6 @@ body {
     width: 10px;
     background-color: white;
     display: inline-block;
-    /* float: right; */
     position: absolute;
     left: 475px;
 }
@@ -81,4 +78,17 @@ body {
     position: absolute;
     left: 245px;
     top: 245px;
+}
+#reset{
+    margin: 0 auto;
+    font-size: 50px;
+    left: 175px;
+    top: 220px;
+    position: absolute;
+    border-radius: 20%;
+    font-family: 'VT323', monospace;
+    background: black;
+    color: white;
+    border: none;
+    visibility: hidden;
 }
