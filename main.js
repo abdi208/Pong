@@ -5,7 +5,8 @@ var player2 = document.getElementById("playerSq2");
 var container = document.getElementById('container');
 var player1Score = document.getElementById('player1Score');
 var player2Score = document.getElementById('player2Score');
-var score = 0;
+var scoreP1 = 0;
+var scoreP2 = 0;
 var player1Pos = 225;
 var player2Pos = 225;
 
@@ -74,18 +75,18 @@ function containerBorderHit() {
             document.getElementById("circle").style.left = ball.x + 'px';
             document.getElementById("circle").style.top = ball.y + 'px';
             ball.directionX = -1
-            score++
-            player2Score.textContent = score
+            scoreP2++
+            player2Score.textContent = scoreP2
         }
 // -- if pong passes right side of container reset at middle and serve the pong back to losing player
-        if(ball.x + ball.speed * ball.directionX > 500) {
+        if(ball.x + ball.speed * ball.directionX >= 500) {
             ball.x = 245;
             ball.y = 245;
             document.getElementById("circle").style.left = ball.x;
             document.getElementById("circle").style.top = ball.y ;
             ball.directionX = 1
-            score++
-            player1Score.textContent = score
+            scoreP1++
+            player1Score.textContent = scoreP1
         }
 }
 
