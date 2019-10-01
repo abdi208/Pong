@@ -4,19 +4,36 @@ body {
     margin: 80px auto;
     font-family: 'VT323', monospace;
     font-size: 20px;
+    position: relative;
+}
+#startScreen {
+    height: 500px;
+    width: 500px;
+    background: blue;
+    color: white;
+    /* margin: 50 auto 0 auto; */
+    text-align: center;
+    font-size: 60px;
+    display: inline-block;
+    position: absolute;
+    margin: 0 auto;
 }
 #container {
-    position: relative;
-    border: 1px solid black;
+    /* position: relative; */
     height: 500px;
     width: 500px;
     background-color: black;
-    margin: 50px auto 0 auto;
+    /* margin: 50px auto 0 auto; */
     text-align: center;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between; 
+    display: inline-block;
+    margin: 0 auto;
+    visibility: hidden;
+    position: relative;
 }
+
 #player1Score {
     height: 100px;
     width: 100px;
@@ -36,7 +53,7 @@ body {
     color: white
 }
 #playerSq {
-    top:225;
+    top:225px;
     height: 50px;
     width: 10px;
     background-color: white;
@@ -62,4 +79,5 @@ body {
     margin: 0 auto;
     position: absolute;
     left: 245px;
+    top: 245px;
 }

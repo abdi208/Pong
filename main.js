@@ -11,10 +11,11 @@ var player1Pos = 225;
 var player2Pos = 225;
 
 //---set interval for the moveBAll callback----
-// var ballAnimated = setInterval(moveBall, 100);
+
 document.addEventListener("keydown", function(e) {
     movePlayerOne(e);
     movePlayer2(e);
+    startGame(e);
    
     
 })
@@ -114,4 +115,12 @@ function detectPaddleHit() {
             
         }
     }  
+}
+function startGame(e) {
+    if(e.which === 32) {
+        document.getElementById('startScreen').style.visibility = "hidden";
+        document.getElementById('container').style.visibility = "visible";
+        var ballAnimated = setInterval(moveBall, 100);
+    }
+
 }
