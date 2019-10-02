@@ -18,6 +18,7 @@ body {
     margin: 0 auto;
     align-items: center;
     top: 80px
+    
 }
 #container {
     height: 500px;
@@ -69,6 +70,32 @@ body {
     position: absolute;
     left: 475px;
 }
+#message1 {
+    background: black;
+    height: 100px;
+    width: 250px;
+    top: 10px;
+    left: 125px;
+    /* display: inline-block; */
+    color:white;
+    font-size:60px;
+    position: absolute;
+    margin: 0 auto;
+    visibility: hidden;
+}
+#message2 {
+    background: black;
+    height: 100px;
+    width: 250px;
+    top: 10px;
+    left: 125px;
+    display: inline-block;
+    color:white;
+    font-size:60px;
+    position: absolute;
+    visibility: hidden;
+    
+}
 #circle {
     height: 10px;
     width: 10px;
@@ -78,6 +105,32 @@ body {
     position: absolute;
     left: 245px;
     top: 245px;
+    /* z-index: 1; */
+}
+#player1close {
+    background: black;
+    height: 100px;
+    width: 250px;
+    top: 350px;
+    left: 125px;
+    display: inline-block;
+    color:white;
+    font-size:20px;
+    position: absolute;
+    visibility: hidden;
+    
+}
+#player2close {
+    background:black;
+    height: 100px;
+    width: 250px;
+    top: 350px;
+    left: 125px;
+    display: inline-block;
+    color:white;
+    font-size:20px;
+    position: absolute;
+    visibility: hidden;
 }
 #reset{
     margin: 0 auto;

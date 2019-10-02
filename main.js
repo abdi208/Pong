@@ -76,11 +76,17 @@ function containerBorderHit() {
             document.getElementById("circle").style.left = ball.x + 'px';
             document.getElementById("circle").style.top = ball.y + 'px';
             ball.directionX = -1
-            
+            //---- display message if player 2 scores----////
+            document.getElementById('message2').style.visibility = "visible"
+            //--hide the message----////
+            setTimeout(function(){document.getElementById('message2').style.visibility = "hidden";},550);
             scoreP2++
             player2Score.textContent = scoreP2
             if(scoreP2 === 3) {
-                document.getElementById("circle").style.backgroundColor = "red"
+            //---- display message if player 2 is about to win----////
+            document.getElementById('player2close').style.visibility = "visible"
+            //--hide the message----////
+            setTimeout(function(){document.getElementById('player2close').style.visibility = "hidden";},800);
             }
             if(scoreP2 === 5){
                 stopAnimation();
@@ -96,8 +102,15 @@ function containerBorderHit() {
             ball.directionX = 1
             scoreP1++
             player1Score.textContent = scoreP1
+            //---- display message if player 1 scores----////
+            document.getElementById('message1').style.visibility = "visible"
+            //--hide the message----////
+            setTimeout(function(){document.getElementById('message1').style.visibility = "hidden";},550);
             if(scoreP1 === 3) {
-                document.getElementById("circle").style.backgroundColor = "red"
+            //---- display message if player 1 is about to win----////
+            document.getElementById('player1close').style.visibility = "visible"
+            //--hide the message----////
+            setTimeout(function(){document.getElementById('player1close').style.visibility = "hidden";},800);
             }
             if(scoreP1 === 5){
                 stopAnimation();
