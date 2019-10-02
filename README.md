@@ -2,6 +2,7 @@
 Welcome to PONG.
 
 Instructions:
+
 This version of Pong is a 2 player game mode. Paddle on the left is Player 1 and Paddle on the right is Player 2.
 
 Steps to play Pong
@@ -16,7 +17,7 @@ Steps to play Pong
 
 5.Player 2's controls are the left-side arrow to move UP and the right-side Arrow to move down.
 
-Conditions for Winning the game.
+Conditions for Winning the game:
 
 If the ball crosses the left side of the gameboard 1 point is awarded to player 2 and a message will display showing that player 2 has scored a point. 
 
