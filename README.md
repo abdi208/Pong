@@ -9,7 +9,7 @@ Paddle on the left is Player 1
 
 Paddle on the right is Player 2.
 
-Steps to play Pong
+Steps:
 
 1.The start menu is the first screen and asks you to press the spacebar to start the game.
 
