@@ -24,11 +24,11 @@ Steps:
 
 Conditions for Winning the game:
 
-If the ball crosses the left side of the gameboard 1 point is awarded to player 2 and a message will display showing that player 2 has scored a point. 
+If the ball crosses the left side of the gameboard 1 point is awarded to player 2 and a message will display saying that player 2 has scored a point. 
 
 Player 1 scores a point if the ball passes the right side of the gameboard and a message will display saying that player 1 has scored.
 
-If either player scores 3 point a message will display warning the opposite player that their opponent is close to winning.
+If either player scores 3 points a message will display warning the opposite player that their opponent is close to winning.
 
 If a player scores 5 points the game stops and a message displays showing which player won and will give the option to restart the game by pressing the spacebar.
 
