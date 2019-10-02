@@ -5,7 +5,9 @@ This version of Pong is a 2 player game mode.
 
 Instructions:
 
-Paddle on the left is Player 1 and Paddle on the right is Player 2.
+Paddle on the left is Player 1
+
+Paddle on the right is Player 2.
 
 Steps to play Pong
 
