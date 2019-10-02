@@ -29,5 +29,5 @@ Player 1 scores a point if the ball passes the right side of the gameboard and a
 
 If either player scores 3 point a message will display warning the opposite player that their opponent is close to winning.
 
-If a player scores 5 points the game stops and a message displays showing which player won and will gice the option to restart the game by pressing the spacebar.
+If a player scores 5 points the game stops and a message displays showing which player won and will give the option to restart the game by pressing the spacebar.
 
