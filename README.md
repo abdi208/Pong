@@ -7,9 +7,13 @@ This version of Pong is a 2 player game mode. Paddle on the left is Player 1 and
 Steps to play Pong
 
 1.The start menu is the first screen and asks you to press the spacebar to start the game.
+
 2.The ball is going to start moving continuously upon the start of the game.
+
 3.Each player must then move their paddles either up or down to serve the ball back to the opposite player.
+
 4.Player 1's controls are the up arrow to move UP and the down arrow to move Down.
+
 5.Player 2's controls are the left-side arrow to move UP and the right-side Arrow to move down.
 
 Conditions for Winning the game.
