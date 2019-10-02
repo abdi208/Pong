@@ -87,11 +87,13 @@ function containerBorderHit() {
             //---- display message if player 2 is about to win----////
             document.getElementById('player2close').style.visibility = "visible"
             //--hide the message----////
-            setTimeout(function(){document.getElementById('player2close').style.visibility = "hidden";},800);
+            setTimeout(function(){document.getElementById('player2close').style.visibility = "hidden";},1000);
             }
             if(scoreP2 === 5){
                 stopAnimation();
                 document.getElementById("circle").style.visibility = "hidden"
+                document.getElementById('player2close').style.visibility = "hidden"
+                document.getElementById('player2won').style.visibility = "visible"
             }
         }
 // -- if pong passes right side of container reset at middle and serve the pong back to losing player
@@ -112,11 +114,14 @@ function containerBorderHit() {
             //---- display message if player 1 is about to win----////
             document.getElementById('player1close').style.visibility = "visible"
             //--hide the message----////
-            setTimeout(function(){document.getElementById('player1close').style.visibility = "hidden";},800);
+            setTimeout(function(){document.getElementById('player1close').style.visibility = "hidden";},1000);
             }
             if(scoreP1 === 5){
                 stopAnimation();
                 document.getElementById("circle").style.visibility = "hidden"
+                setTimeout(function(){document.getElementById('player1close').style.visibility = "hidden";},0);
+                document.getElementById('player1close').style.visibility = "hidden"
+                document.getElementById('player1won').style.visibility = "visible"
             }
         }  
 }
@@ -180,5 +185,7 @@ function resetGame(e) {
         detectPaddleHit(e);
         stopAnimation(e);
         ballanimated = setInterval(moveBall, 100);
+        document.getElementById('player1won').style.visibility = "hidden"
+        document.getElementById('player2won').style.visibility = "hidden"
         
 }

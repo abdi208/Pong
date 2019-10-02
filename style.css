@@ -78,7 +78,7 @@ body {
     left: 125px;
     /* display: inline-block; */
     color:white;
-    font-size:60px;
+    font-size:30px;
     position: absolute;
     margin: 0 auto;
     visibility: hidden;
@@ -91,7 +91,7 @@ body {
     left: 125px;
     display: inline-block;
     color:white;
-    font-size:60px;
+    font-size:30px;
     position: absolute;
     visibility: hidden;
     
@@ -129,6 +129,31 @@ body {
     display: inline-block;
     color:white;
     font-size:20px;
+    position: absolute;
+    visibility: hidden;
+}
+#player1won {
+    background: black;
+    height: 100px;
+    width: 250px;
+    top: 95px;
+    left: 125px;
+    display: inline-block;
+    color:white;
+    font-size:70px;
+    position: absolute;
+    visibility: hidden;
+    
+}
+#player2won {
+    background:black;
+    height: 100px;
+    width: 250px;
+    top: 95px;
+    left: 125px;
+    display: inline-block;
+    color:white;
+    font-size:70px;
     position: absolute;
     visibility: hidden;
 }
