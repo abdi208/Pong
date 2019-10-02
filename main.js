@@ -153,8 +153,8 @@ function resetGame(e) {
         player1Score.innerHTML = 0;
         scoreP1 = 0;
         scoreP2 = 0;
-        var player1Pos = 225;
-        var player2Pos = 225;
+        player1Pos = 225;
+        player2Pos = 225;
         player1.style.top = player1Pos + "px";
         player2.style.top = player2Pos + "px"
         ball.x = 245;
@@ -166,4 +166,5 @@ function resetGame(e) {
         detectPaddleHit(e);
         stopAnimation(e);
         ballanimated = setInterval(moveBall, 100);
+        
 }
