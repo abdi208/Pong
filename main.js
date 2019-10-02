@@ -9,17 +9,16 @@ var scoreP1 = 0;
 var scoreP2 = 0;
 var player1Pos = 225;
 var player2Pos = 225;
+var wonGame = false;
 var reset = document.getElementById('reset').addEventListener('click',resetGame);
 
 //---set interval for the moveBAll callback----
 
 var ballanimated = setInterval(moveBall, 100);
 document.addEventListener("keydown", function(e) {
-   
-    movePlayerOne(e);
-    movePlayer2(e);
-    startGame(e);
-    
+        movePlayerOne(e);
+        movePlayer2(e);
+        startGame(e);
 })
 ///---- move both paddles --- up or down
 function movePlayerOne(e) {
@@ -43,11 +42,11 @@ function movePlayer2(e) {
 
 /// Create an object to set up the balls postion and inital speed------
 var ball1 =  {
-    speed: 15,
-    x: 245,
-    y: 245,
-    directionX: 1,
-    directionY: -1
+        speed: 15,
+        x: 245,
+        y: 245,
+        directionX: 1,
+        directionY: -1
 }
 var ball =  ball1;
 // ----make sure the ball moves and detect collision
@@ -60,7 +59,6 @@ function moveBall() {
         
         containerBorderHit();
         detectPaddleHit();
- 
 }
 function containerBorderHit() {
     
@@ -78,11 +76,15 @@ function containerBorderHit() {
             document.getElementById("circle").style.left = ball.x + 'px';
             document.getElementById("circle").style.top = ball.y + 'px';
             ball.directionX = -1
+            
             scoreP2++
             player2Score.textContent = scoreP2
+            if(scoreP2 === 3) {
+                document.getElementById("circle").style.backgroundColor = "red"
+            }
             if(scoreP2 === 5){
                 stopAnimation();
-                document.getElementById('reset').style.visibility = "visible"
+                document.getElementById("circle").style.visibility = "hidden"
             }
         }
 // -- if pong passes right side of container reset at middle and serve the pong back to losing player
@@ -94,12 +96,14 @@ function containerBorderHit() {
             ball.directionX = 1
             scoreP1++
             player1Score.textContent = scoreP1
+            if(scoreP1 === 3) {
+                document.getElementById("circle").style.backgroundColor = "red"
+            }
             if(scoreP1 === 5){
                 stopAnimation();
-                document.getElementById('reset').style.visibility = "visible"
+                document.getElementById("circle").style.visibility = "hidden"
             }
-        }
-       
+        }  
 }
 
 function detectPaddleHit() {
@@ -115,8 +119,8 @@ function detectPaddleHit() {
     if(ball.x + ball.speed * ball.directionX >= player2Paddle){
         if(ball.y + ball.speed * ball.directionY <= player2Height && ball.y + ball.speed * ball.directionY >= player2Top){
             ball.directionX = -1
-            
         }
+        
     }
     
 //--- check to see if pong hit left paddle--/
@@ -125,39 +129,41 @@ function detectPaddleHit() {
             ball.directionX = 1
             
         }
+        
     }  
 }
 function startGame(e) {
     if(e.which === 32) {
         document.getElementById('startScreen').style.visibility = "hidden";
         document.getElementById('container').style.visibility = "visible";
-        
-    }
-    
-    
-
+        wonGame = false;
+        moveBall(e);
+        resetGame(e);
+        }
 }
 function stopAnimation() {
-    clearInterval(ballanimated);
+        clearInterval(ballanimated);
 }
 function resetGame(e) {
-    document.getElementById('reset').style.visibility = "hidden"
-    player2Score.innerHTML = 0;
-    player1Score.innerHTML = 0;
-    scoreP1 = 0;
-    scoreP2 = 0;
-    var player1Pos = 225;
-    var player2Pos = 225;
-    player1.style.top = player1Pos + "px";
-    player2.style.top = player2Pos + "px"
-    ball.x = 245;
-    ball.y = 245;
-    document.getElementById("circle").style.left = ball.x + 'px';
-    document.getElementById("circle").style.top = ball.y + 'px';
-    startGame(e);
-    moveBall(e);
-    containerBorderHit(e)
-    detectPaddleHit(e);
-    stopAnimation(e);
-    ballanimated = setInterval(moveBall, 100);
+        wonGame = true;
+        document.getElementById('reset').style.visibility = "hidden"
+        document.getElementById("circle").style.visibility = "visible"
+        document.getElementById("circle").style.backgroundColor = "white"
+        player2Score.innerHTML = 0;
+        player1Score.innerHTML = 0;
+        scoreP1 = 0;
+        scoreP2 = 0;
+        var player1Pos = 225;
+        var player2Pos = 225;
+        player1.style.top = player1Pos + "px";
+        player2.style.top = player2Pos + "px"
+        ball.x = 245;
+        ball.y = 245;
+        document.getElementById("circle").style.left = ball.x + 'px';
+        document.getElementById("circle").style.top = ball.y + 'px';
+        moveBall(e);
+        containerBorderHit(e)
+        detectPaddleHit(e);
+        stopAnimation(e);
+        ballanimated = setInterval(moveBall, 100);
 }
