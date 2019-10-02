@@ -17,7 +17,10 @@ Steps to play Pong
 5.Player 2's controls are the left-side arrow to move UP and the right-side Arrow to move down.
 
 Conditions for Winning the game.
-If the ball crosses the left side of the gameboard 1 point is awarded to player 2 and a message will display showing that player 2 has scored a point.Player 1 scores a point if the ball passes the right side of the gameboard and a message will display saying that player 1 has scored.
+
+If the ball crosses the left side of the gameboard 1 point is awarded to player 2 and a message will display showing that player 2 has scored a point. 
+
+Player 1 scores a point if the ball passes the right side of the gameboard and a message will display saying that player 1 has scored.
 
 If either player scores 3 point a message will display warning the opposite player that their opponent is close to winning.
 
