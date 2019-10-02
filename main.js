@@ -1,5 +1,5 @@
 
-/// define variable.
+/// define variables.
 var player1 = document.getElementById("playerSq");
 var player2 = document.getElementById("playerSq2");
 var container = document.getElementById('container');
@@ -14,7 +14,8 @@ var reset = document.getElementById('reset').addEventListener('click',resetGame)
 
 //---set interval for the moveBAll callback----
 
-var ballanimated = setInterval(moveBall, 100);
+var ballanimated = setInterval(moveBall, 10000);
+setTimeout(ballanimated, 6000)
 document.addEventListener("keydown", function(e) {
         movePlayerOne(e);
         movePlayer2(e);
@@ -40,7 +41,7 @@ function movePlayer2(e) {
     }
 }
 
-/// Create an object to set up the balls postion and inital speed------
+/// Create an object to set up the balls position and inital speed------
 var ball1 =  {
         speed: 15,
         x: 245,
@@ -51,7 +52,6 @@ var ball1 =  {
 var ball =  ball1;
 // ----make sure the ball moves and detect collision
 function moveBall() {
-        
         ball.x += ball.speed * ball.directionX;
         ball.y += ball.speed * ball.directionY;
         document.getElementById("circle").style.left = ball.x + 'px';
@@ -80,6 +80,7 @@ function containerBorderHit() {
             document.getElementById('message2').style.visibility = "visible"
             //--hide the message----////
             setTimeout(function(){document.getElementById('message2').style.visibility = "hidden";},550);
+            //--add 1 to player to score--///
             scoreP2++
             player2Score.textContent = scoreP2
             if(scoreP2 === 3) {
@@ -100,6 +101,7 @@ function containerBorderHit() {
             document.getElementById("circle").style.left = ball.x;
             document.getElementById("circle").style.top = ball.y ;
             ball.directionX = 1
+            //--add 1 to player 1 score
             scoreP1++
             player1Score.textContent = scoreP1
             //---- display message if player 1 scores----////
@@ -140,9 +142,7 @@ function detectPaddleHit() {
     if(ball.x + ball.speed * ball.directionX < player1Paddle){
         if(ball.y + ball.speed * ball.directionY <= player1Height && ball.y + ball.speed * ball.directionY >= player1Top){
             ball.directionX = 1
-            
         }
-        
     }  
 }
 function startGame(e) {
@@ -152,6 +152,7 @@ function startGame(e) {
         wonGame = false;
         moveBall(e);
         resetGame(e);
+        
         }
 }
 function stopAnimation() {
