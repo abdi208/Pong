@@ -1,10 +1,22 @@
 body {
-    background-color: chartreuse;
+    background-color: black;
     text-align: center;
     margin: 80px auto;
     font-family: 'VT323', monospace;
     font-size: 20px;
     position: relative;
+}
+#highscore {
+    height: 500px;
+    width: 200px;
+    background: black;
+    display: inline-block;
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    color: white;
+    font-size: 40px;
+    border: 5px solid white;
 }
 #startScreen {
     height: 500px;
@@ -17,7 +29,8 @@ body {
     position: absolute;
     margin: 0 auto;
     align-items: center;
-    top: 80px
+    top: 80px;
+    border: 5px solid white;
     
 }
 #container {
@@ -31,7 +44,8 @@ body {
     margin: 0 auto;
     visibility: hidden;
     position: relative;
-    top: 80px
+    top: 80px;
+    border: 5px solid white;
 }
 
 #player1Score {
