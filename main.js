@@ -7,8 +7,7 @@ var player2Score = document.getElementById('player2Score');
 var scoreP1 = 0;
 var scoreP2 = 0;
 var player1Pos = 225;
-var player2Pos = 225;
-// var wonGame = false;
+
 
 //---Set interval for the moveBAll callback---///
 var ballanimated = setInterval(moveBall, 1000000);
@@ -31,6 +30,12 @@ function movePlayerOne(e) {
         }
 }
 function movePlayer2(e) {
+    //-----Enable for AI Mode----////
+        // var player2PosUp = ball.y + ball.speed * ball.directionY * ball.directionX;
+        // if (player2PosUp >= ball.speed  && player2PosUp > 5 && player2PosUp < 445) {
+        //     console.log(player2PosUp);
+        //     player2.style.top = player2PosUp + "px";
+        // }
         if (e.which === 37 && player2Pos > 5) {
             player2Pos -= 20;
             player2.style.top = player2Pos + "px";
@@ -51,12 +56,14 @@ var ball1 =  {
 var ball =  ball1;
 
 ///---Make sure the ball moves and detect collision---///
-function moveBall() {
+function moveBall(e) {
         ball.x += ball.speed * ball.directionX;
         ball.y += ball.speed * ball.directionY;
         document.getElementById("circle").style.left = ball.x + 'px';
         document.getElementById("circle").style.top = ball.y + 'px';
-        
+        //---enable for Ai Mode---///
+        // movePlayer2(e);
+        //-----------------------///
         containerBorderHit();
         detectPaddleHit();
 }
@@ -188,7 +195,6 @@ anime.timeline({loop: true})
 });
 //---Set the game back to its initial state---///
 function resetGame(e) {
-        // wonGame = true;
         document.getElementById('reset').style.visibility = "hidden";
         document.getElementById("circle").style.visibility = "visible";
         document.getElementById("circle").style.backgroundColor = "white";
