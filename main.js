@@ -31,9 +31,8 @@ function movePlayerOne(e) {
 }
 function movePlayer2(e) {
     //-----Enable for AI Mode----////
-        // var player2PosUp = ball.y + ball.speed * ball.directionY * ball.directionX;
-        // if (player2PosUp >= ball.speed  && player2PosUp > 5 && player2PosUp < 445) {
-        //     console.log(player2PosUp);
+        // var player2PosUp = ball.y + ball.speed - 3* ball.directionY * ball.directionX;
+        // if (player2PosUp >= ball.speed + 2 && player2PosUp > 5 && player2PosUp < 445) {
         //     player2.style.top = player2PosUp + "px";
         // }
         if (e.which === 37 && player2Pos > 5) {
@@ -54,7 +53,7 @@ var ball1 =  {
         directionY: -1
 }
 var ball =  ball1;
-
+var speed = ball.speed;
 ///---Make sure the ball moves and detect collision---///
 function moveBall(e) {
         ball.x += ball.speed * ball.directionX;
@@ -66,6 +65,8 @@ function moveBall(e) {
         //-----------------------///
         containerBorderHit();
         detectPaddleHit();
+
+        
 }
 
 function containerBorderHit() {
@@ -151,14 +152,20 @@ function detectPaddleHit() {
         if(ball.x + ball.speed * ball.directionX >= player2Paddle){
             if(ball.y + ball.speed * ball.directionY <= player2Height && ball.y + ball.speed * ball.directionY >= player2Top){
                 ball.directionX = -1;
+                console.log(ball.speed);
+                
+                
             }
         }
         //--- Check to see if pong hit left paddle--/
         if(ball.x + ball.speed * ball.directionX < player1Paddle){
             if(ball.y + ball.speed * ball.directionY <= player1Height && ball.y + ball.speed * ball.directionY >= player1Top){
                 ball.directionX = 1;
+                console.log(ball.speed);
+                
             }
         }  
+        
 }
 
 function startGame(e) {
@@ -214,7 +221,8 @@ function resetGame(e) {
         containerBorderHit(e);
         detectPaddleHit(e);
         stopAnimation(e);
-        ballanimated = setInterval(moveBall, 100);
+        ballanimated = setInterval(moveBall, 70);
         document.getElementById('player1won').style.visibility = "hidden";
         document.getElementById('player2won').style.visibility = "hidden";
+
 }
