@@ -170,7 +170,22 @@ function startGame(e) {
 function stopAnimation() {
         clearInterval(ballanimated);
 }
-
+//---Loop through the title and display---///
+anime.timeline({loop: true})
+.add({
+    targets: '.pong .word',
+    scale: [1,1],
+    opacity: [0,1],
+    easing: "easeOutCirc",
+    duration: 800,
+    delay: (el, i) => 800 * i
+}).add({
+    targets: '.pong',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+});
 //---Set the game back to its initial state---///
 function resetGame(e) {
         // wonGame = true;
