@@ -31,8 +31,8 @@ function movePlayerOne(e) {
 }
 function movePlayer2(e) {
     //-----Enable for AI Mode----////
-        // var player2PosUp = ball.y + ball.speed - 3* ball.directionY * ball.directionX;
-        // if (player2PosUp >= ball.speed + 2 && player2PosUp > 5 && player2PosUp < 445) {
+        // var player2PosUp = ball.y + ball.speed - 1 * ball.directionY * ball.directionX;
+        // if (player2PosUp >= ball.speed && player2PosUp > 5 && player2PosUp < 445) {
         //     player2.style.top = player2PosUp + "px";
         // }
         if (e.which === 37 && player2Pos > 5) {
@@ -53,7 +53,6 @@ var ball1 =  {
         directionY: -1
 }
 var ball =  ball1;
-var speed = ball.speed;
 ///---Make sure the ball moves and detect collision---///
 function moveBall(e) {
         ball.x += ball.speed * ball.directionX;
@@ -65,8 +64,6 @@ function moveBall(e) {
         //-----------------------///
         containerBorderHit();
         detectPaddleHit();
-
-        
 }
 
 function containerBorderHit() {
@@ -136,7 +133,6 @@ function containerBorderHit() {
                 document.getElementById('player1won').style.visibility = "visible";
             }
         }  
-    
 }
 
 function detectPaddleHit() {
@@ -151,21 +147,15 @@ function detectPaddleHit() {
         //---Check to see if pong hit right paddle--//
         if(ball.x + ball.speed * ball.directionX >= player2Paddle){
             if(ball.y + ball.speed * ball.directionY <= player2Height && ball.y + ball.speed * ball.directionY >= player2Top){
-                ball.directionX = -1;
-                console.log(ball.speed);
-                
-                
+                ball.directionX = -1; 
             }
         }
         //--- Check to see if pong hit left paddle--/
         if(ball.x + ball.speed * ball.directionX < player1Paddle){
             if(ball.y + ball.speed * ball.directionY <= player1Height && ball.y + ball.speed * ball.directionY >= player1Top){
                 ball.directionX = 1;
-                console.log(ball.speed);
-                
             }
         }  
-        
 }
 
 function startGame(e) {
@@ -174,7 +164,6 @@ function startGame(e) {
         if(e.which === 32) {
             document.getElementById('startScreen').style.visibility = "hidden";
             document.getElementById('container').style.visibility = "visible";
-            // wonGame = false;
             moveBall(e);
             resetGame(e);
             }
@@ -183,7 +172,7 @@ function startGame(e) {
 //---Clears the interval to stop the ball from moving---///
 function stopAnimation() {
         clearInterval(ballanimated);
-}
+}   
 //---Loop through the title and display---///
 anime.timeline({loop: true})
 .add({
@@ -224,5 +213,4 @@ function resetGame(e) {
         ballanimated = setInterval(moveBall, 70);
         document.getElementById('player1won').style.visibility = "hidden";
         document.getElementById('player2won').style.visibility = "hidden";
-
 }
