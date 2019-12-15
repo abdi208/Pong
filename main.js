@@ -15,7 +15,7 @@ var ballanimated = setInterval(moveBall, 1000000);
 ///--Add event listener to the page---///
 document.addEventListener("keydown", function(e) {
         movePlayerOne(e);
-        movePlayer2(e);
+        // movePlayer2(e);
         startGame(e);
 })
 
@@ -31,17 +31,17 @@ function movePlayerOne(e) {
 }
 function movePlayer2(e) {
     //-----Enable for AI Mode----////
-        // var player2PosUp = ball.y + ball.speed - 1 * ball.directionY * ball.directionX;
-        // if (player2PosUp >= ball.speed && player2PosUp > 5 && player2PosUp < 445) {
-        //     player2.style.top = player2PosUp + "px";
-        // }
-        if (e.which === 37 && player2Pos > 5) {
-            player2Pos -= 20;
-            player2.style.top = player2Pos + "px";
-        }else if (e.which === 39 && player2Pos < 445) {
-            player2Pos += 20;
-            player2.style.top = player2Pos + "px";
+        var player2PosUp = ball.y + ball.speed - 1 * ball.directionY * ball.directionX;
+        if (player2PosUp >= ball.speed && player2PosUp > 5 && player2PosUp < 445) {
+            player2.style.top = player2PosUp + "px";
         }
+        // if (e.which === 37 && player2Pos > 5) {
+        //     player2Pos -= 20;
+        //     player2.style.top = player2Pos + "px";
+        // }else if (e.which === 39 && player2Pos < 445) {
+        //     player2Pos += 20;
+        //     player2.style.top = player2Pos + "px";
+        // }
 }
 
 ///---Create an object to set up the balls position and inital speed---///
@@ -60,7 +60,7 @@ function moveBall(e) {
         document.getElementById("circle").style.left = ball.x + 'px';
         document.getElementById("circle").style.top = ball.y + 'px';
         //---enable for Ai Mode---///
-        // movePlayer2(e);
+        movePlayer2(e);
         //-----------------------///
         containerBorderHit();
         detectPaddleHit();
