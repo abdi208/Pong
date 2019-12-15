@@ -1,6 +1,6 @@
 # Project-1
 
-https://abdi208.github.io/Project-1/
+https://abdi208.github.io/Pong/
 
 Welcome to PONG.
 
